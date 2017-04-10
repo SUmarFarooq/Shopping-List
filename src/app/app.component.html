@@ -1,0 +1,26 @@
+<h1>{{title}}</h1>
+      <label>Add Item: </label>
+      <input #itembox [(ngModel)]="newitem" 
+      (keyup.enter) ="addItem(itembox.value)" placeholder="New Item Name"> 
+      <button (click) ="addItem(itembox.value)"> Add </button>
+  <ul id="mylist" class="ulclass">
+    <li *ngFor='let item of listitems'
+    [class.selected] = "item.isSelected===true"
+    (click) = "isClicked(item)"> 
+      <span class="badge">{{item.id}}</span> {{item.name}}
+      <button class="edit"  
+         (click) = "isClicked(item)"
+         (click) = "editItem(item)"
+        > Edit</button>
+        <button class="delete"
+        (click) = "deleteItem(item,list)" 
+        (click) = "isClicked(item)" >x</button>
+    </li>
+  </ul>
+    <div *ngIf="selectedItem">
+      <h3> Edit {{selectedItem.name}} </h3>
+      <div>
+        <label>Item Name: </label>
+        <input [(ngModel)]="selectedItem.name" placeholder="item"/> <button (click) = "!editItem(item)"> Confirm </button>
+      </div> 
+    </div>

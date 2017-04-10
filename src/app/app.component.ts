@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+// import { item } from './item';
+// import { EditComponent } from './edit.component'
+// import {listservice} from './list.service'
 
 const list: item[] = [
   { id: 1, name: "Kopi Luwak", isSelected: false},
@@ -15,114 +18,14 @@ export class item {
 
 @Component({
   selector: 'my-app',
-  template: `
-  <h1>{{title}}</h1>
-      <label>Add Item: </label>
-      <input #itembox [(ngModel)]="newitem" 
-      (keyup.enter) ="addItem(itembox.value)" placeholder="New Item Name"> 
-      <button (click) ="addItem(itembox.value)"> Add </button>
-  <ul id="mylist" class="ulclass">
-    <li *ngFor='let item of listitems'
-    [class.selected] = "item.isSelected===true"
-    (click) = "isClicked(item)"> 
-      <span class="badge">{{item.id}}</span> {{item.name}}
-      <button class="edit"  
-         (click) = "isClicked(item)"
-         (click) = "editItem(item)"
-        > Edit</button>
-        <button class="delete"
-  (click)="delete(item); $event.stopPropagation()">x</button>
-    </li>
-  </ul>
-    <div *ngIf="selectedItem">
-      <h3> Edit {{selectedItem.name}} </h3>
-      <div>
-        <label>Item Name: </label>
-        <input [(ngModel)]="selectedItem.name" placeholder="item"/> <button (click) = "!editItem(item)"> Confirm </button>
-      </div> 
-    </div>`
-,
- styles: [`
-    button.edit{
-      background-color: #5b9aa0;
-      float: right;
-      color: white;
-      margin-top: 2px;
-
-      }
-    button.delete {
-        float:right;
-        margin-top: 2px;
-        margin-right: .2em;
-        background-color: #c94c4c;
-        color:white;
-      }
-    .selected {
-      background-color: #CFD8DC !important;
-      color: green;
-    }
-    .ulclass {
-      margin: 0 0 2em 0;
-      list-style-type: none;
-      padding: 0;
-      width: 20em;
-    }
-    .green{
-      color: green;
-      margin: 0 0 2em 0;
-      list-style-type: none;
-      padding: 0;
-      width: 15em;
-    }
-    .red{
-      color: red;
-      margin: 0 0 2em 0;
-      list-style-type: none;
-      padding: 0;
-      width: 15em;
-    }
-    .ulclass li {
-      cursor: pointer;
-      position: relative;
-      left: 0;
-      background-color: #EEE;
-      margin: .5em;
-      padding: .3em 0;
-      height: 1.6em;
-      border-radius: 4px;
-    }
-    .ulclass li.selected:hover {
-      background-color: #BBD8DC !important;
-      color: white;
-    }
-    .ulclass li:hover {
-      color: #607D8B;
-      background-color: #DDD;
-      left: .1em;
-    }
-    .text {
-      position: relative;
-      top: -3px;
-    }
-    .badge {
-      display: inline-block;
-      font-size: small;
-      color: white;
-      padding: 0.8em 0.7em 0 0.7em;
-      background-color: #607D8B;
-      line-height: 1em;
-      position: relative;
-      left: -1px;
-      top: -4px;
-      height: 1.8em;
-      margin-right: .8em;
-      border-radius: 4px 0 0 4px;
-    }
-  `]
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+  // providers: [listservice]
 })
 
 export class AppComponent {
   title = 'Shopping List';
+  // list: item[];
   listitems = list;
   itemcount = this.listitems.length
   selectedItem: item;
@@ -142,8 +45,18 @@ export class AppComponent {
       item.isSelected=true;
     }
   }
-  editItem(item: item) {
-    this.selectedItem = item;
-  } 
-  
+
+// constructor(private listservice: listservice) {} 
+//     getlist(): void {
+//       this.list=this.listservice.getlist();
+// }
+editItem(item: item) {
+   this.selectedItem = item;
+
+deleteItem(item, list) ;{
+  this.selectedItem = item;
+  this.listitems = list;
+  this.listitems=this.listitems.slice(this.selectedItem.id+1,this.selectedItem.id+2)
 }
+}
+  } 

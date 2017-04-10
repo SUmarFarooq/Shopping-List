@@ -1,6 +1,17 @@
-    .edit{
-      background-color: blue;
-      margin: 0 auto;
+
+    button.edit{
+      background-color: #5b9aa0;
+      float: right;
+      color: white;
+      margin-top: 2px;
+
+      }
+    button.delete {
+        float:right;
+        margin-top: 2px;
+        margin-right: .2em;
+        background-color: #c94c4c;
+        color:white;
       }
     .selected {
       background-color: #CFD8DC !important;
@@ -11,20 +22,6 @@
       list-style-type: none;
       padding: 0;
       width: 20em;
-    }
-    .green{
-      color: green;
-      margin: 0 0 2em 0;
-      list-style-type: none;
-      padding: 0;
-      width: 15em;
-    }
-    .red{
-      color: red;
-      margin: 0 0 2em 0;
-      list-style-type: none;
-      padding: 0;
-      width: 15em;
     }
     .ulclass li {
       cursor: pointer;
