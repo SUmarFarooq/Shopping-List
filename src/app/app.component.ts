@@ -22,16 +22,28 @@ export class item {
       (keyup.enter) ="addItem(itembox.value)" placeholder="New Item Name"> 
       <button (click) ="addItem(itembox.value)"> Add </button>
   <ul id="mylist" class="ulclass">
-
-    <li *ngFor='let yoodli of listitems'
-    [class.selected] = "yoodli.isSelected===true"
-    (click) =  "isClicked(yoodli)"  > 
-
-      <span class="badge">{{yoodli.id}}</span> {{yoodli.name}}
+    <li *ngFor='let item of listitems'
+    [class.selected] = "item.isSelected===true"
+    (click) = "isClicked(item)"> 
+      <span class="badge">{{item.id}}</span> {{item.name}}
+      <button class="w3-button"  
+         (click) = "isClicked(item)"
+         (click) = "editItem(item)"> Edit</button>
     </li>
   </ul>
-`,
+  <div *ngIf="selectedItem">
+    <h3> Edit {{selectedItem.name}} </h3>
+    <div>
+      <label>Item Name: </label>
+      <input [(ngModel)]="selectedItem.name" placeholder="item"/> <button selectedItem> Confirm </button>
+    </div>
+  </div>`
+,
  styles: [`
+    .edit{
+      background-color: red
+    margin: 0 auto;
+      }
     .selected {
       background-color: #CFD8DC !important;
       color: green;
@@ -40,7 +52,7 @@ export class item {
       margin: 0 0 2em 0;
       list-style-type: none;
       padding: 0;
-      width: 15em;
+      width: 20em;
     }
     .green{
       color: green;
@@ -108,12 +120,19 @@ export class AppComponent {
     this.listitems.push(myitem)
   }
 
-  isClicked(yoodli: item) {
-    if (yoodli.isSelected===true) {
-      yoodli.isSelected=false;
+  isClicked(item: item) {
+    if (item.isSelected===true) {
+      item.isSelected=false;
     }
     else {
-      yoodli.isSelected=true;
+      item.isSelected=true;
     }
+  }
+  editItem(item: item) {
+    this.selectedItem = item;
   } 
+  // confirmEdit(item:item) {
+
+  // }
+  
 }
