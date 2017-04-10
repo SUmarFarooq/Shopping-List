@@ -26,23 +26,36 @@ export class item {
     [class.selected] = "item.isSelected===true"
     (click) = "isClicked(item)"> 
       <span class="badge">{{item.id}}</span> {{item.name}}
-      <button class="w3-button"  
+      <button class="edit"  
          (click) = "isClicked(item)"
-         (click) = "editItem(item)"> Edit</button>
+         (click) = "editItem(item)"
+        > Edit</button>
+        <button class="delete"
+  (click)="delete(item); $event.stopPropagation()">x</button>
     </li>
   </ul>
-  <div *ngIf="selectedItem">
-    <h3> Edit {{selectedItem.name}} </h3>
-    <div>
-      <label>Item Name: </label>
-      <input [(ngModel)]="selectedItem.name" placeholder="item"/> <button selectedItem> Confirm </button>
-    </div>
-  </div>`
+    <div *ngIf="selectedItem">
+      <h3> Edit {{selectedItem.name}} </h3>
+      <div>
+        <label>Item Name: </label>
+        <input [(ngModel)]="selectedItem.name" placeholder="item"/> <button (click) = "!editItem(item)"> Confirm </button>
+      </div> 
+    </div>`
 ,
  styles: [`
-    .edit{
-      background-color: red
-    margin: 0 auto;
+    button.edit{
+      background-color: #5b9aa0;
+      float: right;
+      color: white;
+      margin-top: 2px;
+
+      }
+    button.delete {
+        float:right;
+        margin-top: 2px;
+        margin-right: .2em;
+        background-color: #c94c4c;
+        color:white;
       }
     .selected {
       background-color: #CFD8DC !important;
@@ -113,6 +126,7 @@ export class AppComponent {
   listitems = list;
   itemcount = this.listitems.length
   selectedItem: item;
+  confirmedItem: item;
 
   addItem(itemname: string) {
     this.itemcount++;
@@ -131,8 +145,5 @@ export class AppComponent {
   editItem(item: item) {
     this.selectedItem = item;
   } 
-  // confirmEdit(item:item) {
-
-  // }
   
 }
