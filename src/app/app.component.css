@@ -1,18 +1,31 @@
 
-    button.edit{
+    h1 {
+      color: black;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+      font-size: 44px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 500;
+      line-height: 26.4px;
+    }
+    /*#addlabel{
+      color: yellow;
+      font-family: "Gill Sans";
+      font-size: 33px;
+    }*/
+    button.edit {
       background-color: #5b9aa0;
       float: right;
       color: white;
       margin-top: 2px;
-
       }
     button.delete {
-        float:right;
-        margin-top: 2px;
-        margin-right: .2em;
-        background-color: #c94c4c;
-        color:white;
-      }
+      float:right;
+      margin-top: 2px;
+      margin-right: .2em;
+      background-color: #c94c4c;
+      color:white;
+    }
     .selected {
       background-color: #CFD8DC !important;
       color: green;
@@ -22,6 +35,7 @@
       list-style-type: none;
       padding: 0;
       width: 20em;
+      color: black;
     }
     .ulclass li {
       cursor: pointer;
@@ -32,6 +46,7 @@
       padding: .3em 0;
       height: 1.6em;
       border-radius: 4px;
+      -moz-text-decoration-color: black;
     }
     .ulclass li.selected:hover {
       background-color: #BBD8DC !important;
@@ -45,6 +60,7 @@
     .text {
       position: relative;
       top: -3px;
+      color: black;
     }
     .badge {
       display: inline-block;

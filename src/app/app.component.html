@@ -1,7 +1,7 @@
 
 
 <h1>{{title}}</h1>
-      <label>Add Item: </label>
+      <label id="addlabel">Add Item: </label>
       <input #itembox [(ngModel)]="newitem" 
       (keyup.enter) ="addItem(itembox.value)" placeholder="New Item Name"> 
       <button (click) ="addItem(itembox.value)"> Add </button>
