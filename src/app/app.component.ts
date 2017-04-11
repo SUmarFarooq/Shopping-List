@@ -24,12 +24,13 @@ export class item {
 })
 
 export class AppComponent {
+  item: any;
   title = 'Shopping List';
   // list: item[];
   listitems = list;
   itemcount = this.listitems.length
-  selectedItem: item;
-  confirmedItem: item;
+  editedItem: item;
+  deletedItem: item;
 
   addItem(itemname: string) {
     this.itemcount++;
@@ -51,12 +52,14 @@ export class AppComponent {
 //       this.list=this.listservice.getlist();
 // }
 editItem(item: item) {
-   this.selectedItem = item;
-
-deleteItem(item, list) ;{
-  this.selectedItem = item;
-  this.listitems = list;
-  this.listitems=this.listitems.slice(this.selectedItem.id+1,this.selectedItem.id+2)
+   this.editedItem = item;
 }
+deleteItem(item:item) {
+  //   var index = $scope.listitems.indexOf(item);
+  // $scope.listitems.splice(index, 1);
+  this.deletedItem = item; 
+  this.listitems = list;
+  this.listitems.slice(this.item.id,this.item.id+1);
+  this.listitems;
 }
   } 

@@ -1,3 +1,7 @@
+<head>
+<script src="jquery-3.2.0.min.js"></script>
+</head>
+
 <h1>{{title}}</h1>
       <label>Add Item: </label>
       <input #itembox [(ngModel)]="newitem" 
@@ -13,14 +17,14 @@
          (click) = "editItem(item)"
         > Edit</button>
         <button class="delete"
-        (click) = "deleteItem(item,list)" 
-        (click) = "isClicked(item)" >x</button>
+        (click) = "deleteItem(item)" 
+        >X</button>
     </li>
   </ul>
-    <div *ngIf="selectedItem">
-      <h3> Edit {{selectedItem.name}} </h3>
+    <div *ngIf="editedItem">
+      <h3> Edit {{editedItem.name}} </h3>
       <div>
         <label>Item Name: </label>
-        <input [(ngModel)]="selectedItem.name" placeholder="item"/> <button (click) = "!editItem(item)"> Confirm </button>
+        <input [(ngModel)]="editedItem.name" placeholder="item"/> <button (click) = "!editItem(item)"> Confirm </button>
       </div> 
     </div>
