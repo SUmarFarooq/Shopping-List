@@ -30,7 +30,6 @@ export class AppComponent {
   listitems = list;
   itemcount = this.listitems.length
   editedItem: item;
-  deletedItem: item;
 
   addItem(itemname: string) {
     this.itemcount++;
@@ -55,11 +54,7 @@ editItem(item: item) {
    this.editedItem = item;
 }
 deleteItem(item:item) {
-  //   var index = $scope.listitems.indexOf(item);
-  // $scope.listitems.splice(index, 1);
-  this.deletedItem = item; 
-  this.listitems = list;
-  this.listitems.slice(this.item.id,this.item.id+1);
-  this.listitems;
+  var index = this.listitems.indexOf(item);
+  this.listitems.splice(index,1);
 }
   } 
