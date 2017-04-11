@@ -6,6 +6,10 @@ This is a functional shopping list built in Angular, allowing users to add items
 
 To run the Shopping List application, download the folder, unzip it, and open your terminal. If you have npm installed, change your terminal's directory to the list folder. From there, start npm and the list should open in your browser. If you do not have npm installed, the Angular website has setup instructions here: https://angular.io/docs/ts/latest/guide/setup.html.
 
+## Future Work
+
+The application currently runs out of one main component. I intend to modularize it in future revisions. 
+
 ## Authors
 
 * **Umar Farooq** - *Initial work* - (https://github.com/SUmarFarooq)
